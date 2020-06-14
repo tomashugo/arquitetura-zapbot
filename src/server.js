@@ -5,8 +5,8 @@ const { comandos } = require("./middlewares");
 
 const mensagemResposta = {};
 // const mensagemRecebida = { txt: "@dolar" };
-// const mensagemRecebida = { txt: "@eagora" };
-const mensagemRecebida = { txt: "Mensagem inesperada" };
+const mensagemRecebida = { txt: "@eagora" };
+// const mensagemRecebida = { txt: "Mensagem inesperada" };
 
 comandos.addCmd("@oi", () => "Fala sio");
 comandos.addCmd("@eagora", () => "To nem aiiii");
