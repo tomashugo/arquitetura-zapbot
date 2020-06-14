@@ -4,9 +4,10 @@ Esta arquitetura implementa o conceito de chain of responsability, onde a mensag
 
 Cada funcão middleware tem a seguinte assinatura:
 
-```
+```js
 const funcaoMiddleware = (mensagemRecebida, mensagemResposta, next) => {
-    // ... lógica de negócio aplicada em cima de mensagemRecebida para alteração da mensagemResposta, ou execução de alguma tarefa no backend (persistência de dados, salvar mensagens, etc)
-    next(); // chamada para o próximo middleware
-}
+  // ... lógica de negócio aplicada em cima de mensagemRecebida para alteração da mensagemResposta,
+  // ou execução de alguma tarefa no backend (persistência de dados, salvar mensagens, etc)
+  next(); // chamada para o próximo middleware
+};
 ```
