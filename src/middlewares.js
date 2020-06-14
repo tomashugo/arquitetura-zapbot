@@ -18,7 +18,7 @@ const salvarArquivos = (mensagemRecebida, mensagemResposta, next) => {
 
 const seComando = (mensagemRecebida, mensagemResposta, next) => {
   if (comandos.existeComando(mensagemRecebida)) {
-    mensagemResposta.txt = comandos.executarCallback(mensagemRecebida);
+    mensagemResposta.txt = comandos.executarCallback();
     mensagemResposta.freeze = true;
   }
   next();
@@ -39,17 +39,12 @@ const comandos = {
     if (match.length === 0) {
       return false;
     } else {
+      this.matchComando = match[0];
       return true;
     }
   },
-  executarCallback(mensagemUsuario) {
-    const comandosCadastrados = Object.keys(this.lista);
-    const match = comandosCadastrados.filter((valor, indice) => {
-      if (mensagemUsuario.txt.startsWith(valor)) return true;
-      else return false;
-    });
-
-    return this.lista[match[0]]();
+  executarCallback() {
+    return this.lista[this.matchComando]();
   },
 };
 
